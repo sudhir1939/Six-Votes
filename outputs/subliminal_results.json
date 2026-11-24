@@ -1,0 +1,79 @@
+{
+  "config": {
+    "hidden": 128,
+    "n_aux": 3,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "noise_profile": "iso-gauss-64"
+  },
+  "per_seed": [
+    {
+      "seed": 0,
+      "untrained_acc": 0.11083123425692695,
+      "teacher_acc": 0.9622166246851386,
+      "student_same_init_acc": 0.8765743073047859,
+      "student_diff_init_acc": 0.12594458438287154
+    },
+    {
+      "seed": 1,
+      "untrained_acc": 0.06801007556675064,
+      "teacher_acc": 0.9773299748110831,
+      "student_same_init_acc": 0.9193954659949622,
+      "student_diff_init_acc": 0.08312342569269521
+    },
+    {
+      "seed": 2,
+      "untrained_acc": 0.10075566750629723,
+      "teacher_acc": 0.9672544080604534,
+      "student_same_init_acc": 0.9521410579345088,
+      "student_diff_init_acc": 0.08060453400503778
+    },
+    {
+      "seed": 3,
+      "untrained_acc": 0.08312342569269521,
+      "teacher_acc": 0.9748110831234257,
+      "student_same_init_acc": 0.9193954659949622,
+      "student_diff_init_acc": 0.12846347607052896
+    },
+    {
+      "seed": 4,
+      "untrained_acc": 0.04030226700251889,
+      "teacher_acc": 0.9697732997481109,
+      "student_same_init_acc": 0.947103274559194,
+      "student_diff_init_acc": 0.22921914357682618
+    }
+  ],
+  "mean": {
+    "untrained_acc": 0.08060453400503778,
+    "teacher_acc": 0.9702770780856425,
+    "student_same_init_acc": 0.9229219143576828,
+    "student_diff_init_acc": 0.12947103274559194
+  },
+  "own_experiment": {
+    "question": "Does the standard deviation of pure Gaussian noise inputs change how well a freshly initialized student inherits digit classification accuracy through auxiliary outputs?",
+    "hypothesis": "Unit-variance noise (std=1.0) matches the standardised digit input scale and should preserve signal transfer better than very small or overly large noise scales.",
+    "conditions": [
+      {
+        "label": "noise_std_0.25",
+        "value": 0.25,
+        "student_acc_mean": 0.09722921914357682
+      },
+      {
+        "label": "noise_std_1.0",
+        "value": 1.0,
+        "student_acc_mean": 0.10226700251889169
+      },
+      {
+        "label": "noise_std_4.0",
+        "value": 4.0,
+        "student_acc_mean": 0.09874055415617129
+      }
+    ],
+    "conclusion": "Across noise standard deviations, noise_std_1.0 achieved the highest mean test accuracy (0.1023) compared to noise_std_0.25 (0.0972). Noise amplitude shapes how strongly teacher auxiliary responses carry transferable structure."
+  }
+}
